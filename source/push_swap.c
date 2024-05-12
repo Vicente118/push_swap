@@ -12,6 +12,13 @@ int main(int argc, char **argv)
 	printf("\n");
 	pa(stackA, stackB);
 	pa(stackA, stackB);
+	print_stack(stackA);
+	printf("\n");
+	print_stack(stackB);
+	pb(stackB, stackA);
+	pb(stackB, stackA);
+	print_stack(stackA);
+	printf("\n");
 	print_stack(stackB);
 	free_stack(&(stackA->top));
 	free(stackA);

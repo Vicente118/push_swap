@@ -10,7 +10,7 @@ void	print_stack(t_stack *stack)
 		ft_printf("Liste vide");
 		return ;
 	}
-	while (temp->next != NULL)
+	while (temp != NULL)
 	{
 		ft_printf("[%d] ", temp->value);
 		temp = temp->next;

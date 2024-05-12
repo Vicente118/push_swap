@@ -66,6 +66,7 @@ void    sa(t_stack *stackA);
 void    sb(t_stack *stackB);
 void    ss(t_stack *stackA, t_stack *stackB);
 void    pa(t_stack *stackA, t_stack *stackB);
+void    pb(t_stack *stackB, t_stack *stackA);
 
 //FINAL FONCTION
 void	push_swap(int argc, char **argv);

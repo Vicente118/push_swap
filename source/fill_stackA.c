@@ -22,7 +22,7 @@ t_stack	*fill_stackA(int argc, char **argv)
 	i = 0;
 	array_number = argv_array_numbers(argc, argv);
 	stackA = init_stack();
-	while (i <= len_simple_array(array_number))
+	while (i < len_simple_array(array_number))
 	{
 		stackA = add_back_stack(stackA, array_number[i]);
 		i++;

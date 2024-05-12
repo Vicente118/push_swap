@@ -2,22 +2,46 @@
 
 void    pa(t_stack *stackA, t_stack *stackB)
 {
-    t_stackNode *nodeA = stackA->top;
-
-    stackA->top = nodeA->next;
-    if (stackA->top == NULL)
-        stackA->bottom = NULL;
-    else
+    t_stackNode *node_to_push;
+    
+    node_to_push = stackA->top;
+    stackA->top = stackA->top->next;
+    if (stackA->top)
         stackA->top->back = NULL;
-    stackA->length--;
-
-    nodeA->next = stackB->top;
-    nodeA->back = NULL;
-    if (stackB->top == NULL)
-        stackB->bottom = nodeA;
-        stackB->bottom->next = NULL;
-    stackB->top = nodeA;
-    stackB->length++;
-
+    node_to_push->back =  NULL;
+    if(!stackB->top)
+    {
+        stackB->top = node_to_push;
+        node_to_push->next = NULL;
+    }
+    else
+    {
+        node_to_push->next = stackB->top;
+        node_to_push->next->back = node_to_push;
+        stackB->top = node_to_push;
+    }
+    write(1, "pa\n", 3);
 }
 
+void    pb(t_stack *stackB, t_stack *stackA)
+{
+    t_stackNode *node_to_push;
+    
+    node_to_push = stackB->top;
+    stackB->top = stackB->top->next;
+    if (stackB->top)
+        stackB->top->back = NULL;
+    node_to_push->back =  NULL;
+    if(!stackA->top)
+    {
+        stackA->top = node_to_push;
+        node_to_push->next = NULL;
+    }
+    else
+    {
+        node_to_push->next = stackA->top;
+        node_to_push->next->back = node_to_push;
+        stackA->top = node_to_push;
+    }
+    write(1, "pb\n", 3);
+}
