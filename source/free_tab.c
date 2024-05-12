@@ -25,3 +25,17 @@ void    free_tab(char **array)
     }
     free(array);
 }
+void	free_stack(t_stackNode **lst)
+{
+	t_stackNode	*tmp;
+
+	if (!lst)
+		return ;
+	while (*lst)
+	{
+		tmp = (*lst)->next;
+		(*lst)->value = 0;
+		free(*lst);
+		*lst = tmp;
+	}
+}

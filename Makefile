@@ -9,7 +9,7 @@ NAME = push_swap
 
 CC = cc 
 
-CFLAGS = -Werror -Wall -Wextra 
+CFLAGS = -Werror -Wall -Wextra -fsanitize=address -g
 
 RM = rm -rf
 
@@ -18,6 +18,9 @@ SRCS = 	source/push_swap.c\
 		source/linked_list_movement.c\
 		source/print_stack.c\
 		source/parsing.c\
+		source/fill_stackA.c\
+		source/swap_movement.c\
+		source/push_movement.c\
 		source/free_tab.c\
 		source/ft_big_atoi.c\
 		source/argv_to_array.c\

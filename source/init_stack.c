@@ -1,6 +1,6 @@
 #include "push_swap.h"
 
-t_stack *init_stackA(void)
+t_stack *init_stack(void)
 {
     return (NULL);
 }

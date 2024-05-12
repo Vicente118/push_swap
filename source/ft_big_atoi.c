@@ -37,9 +37,7 @@ int		len_simple_array(ssize_t *array)
 	int	count;
 
 	count = 0;
-	while (array[count])
-	{
+	while (array[count] != INT_MAX)
 		count++;
-	}
 	return (count);
 }

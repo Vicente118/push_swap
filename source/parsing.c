@@ -18,9 +18,9 @@ t_Bool check_doublon_error(ssize_t *tab)
 
     temp = tab;
     i = 0;
-    j = 0;
     while (tab[i])
     {
+        j = 0; 
         while (temp[j])
         {
             if (tab[i] == temp[j] && i != j)
@@ -66,20 +66,18 @@ ssize_t *parser_simple_argv(char **argv)
     ssize_t *int_tab;
     size_t  i;
 
-    i = 0;
+    i = -1;
     array = ft_split(argv[1], ' ');
     if (!array)
         print_error();
     if (!check_argv_error(array))
         free_tab_error(array);
-    int_tab = malloc(sizeof(ssize_t) * length_array(array));
+    int_tab = malloc(sizeof(ssize_t) * (length_array(array) + 1));
     if (!int_tab)
         free_tab_error(array);
-    while (array[i])
-    {
-        int_tab[i] = ft_atoi(array[i]);
-        i++;
-    }
+    while (array[++i])
+        int_tab[i] = ft_big_atoi(array[i]);
+    int_tab[i] = INT_MAX;
     if (!check_doublon_error(int_tab))
     {
         free(int_tab);
@@ -89,7 +87,7 @@ ssize_t *parser_simple_argv(char **argv)
     return (int_tab);
 }
 
-ssize_t *parser_multiple_argv(char  **argv)
+ssize_t *parser_multiple_argv(int argc, char  **argv)
 {
     char    **array;
     char    *temp;
@@ -97,18 +95,19 @@ ssize_t *parser_multiple_argv(char  **argv)
     size_t  i;
 
     i = -1;
-    temp = argv_to_array(argv);
+    temp = argv_to_array(argc, argv);
     array = ft_split(temp, ' ');
     if (!array)
         print_error();
     free(temp);
     if (!check_argv_error(array))
         free_tab_error(array);
-    int_tab = malloc(sizeof(ssize_t) * length_array(array));
+    int_tab = malloc(sizeof(ssize_t) * (length_array(array) + 1));
     if (!int_tab)
         free_tab_error(array);
     while (array[++i])
-        int_tab[i] = ft_atoi(array[i]);
+        int_tab[i] = ft_big_atoi(array[i]);
+    int_tab[i] = INT_MAX;
     if (!check_doublon_error(int_tab))
     {
         free(int_tab);
@@ -116,4 +115,3 @@ ssize_t *parser_multiple_argv(char  **argv)
     }
     return (free_tab(array), int_tab);
 }
-

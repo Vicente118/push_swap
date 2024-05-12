@@ -1,6 +1,6 @@
 #include "push_swap.h"
 
-int     argv_count(char **argv)
+int     argv_count(int argc, char **argv)
 {
     int count;
     int i;
@@ -8,7 +8,7 @@ int     argv_count(char **argv)
 
     i = 1;
     count = 0;
-    while (argv[i])
+    while (i < argc)
     {
         j = 0;
         while (argv[i][j])
@@ -21,7 +21,7 @@ int     argv_count(char **argv)
     }
     return (count);
 }
-char    *argv_to_array(char **argv)
+char    *argv_to_array(int argc, char **argv)
 {
     char    *string;
     int     i;
@@ -30,8 +30,8 @@ char    *argv_to_array(char **argv)
 
     i = 1;
     k = 0;
-    string = malloc(sizeof(char) * (argv_count(argv) + 1));
-    while (argv[i])
+    string = malloc(sizeof(char) * (argv_count(argc, argv) + argc));
+    while (i < argc)
     {
         j = 0;
         while (argv[i][j])
