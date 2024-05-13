@@ -62,11 +62,20 @@ void    free_tab_error(char **array);
 void	free_stack(t_stackNode **lst);
 
 // MOVEMENT
+void    swap(t_stack *stack);
 void    sa(t_stack *stackA);
 void    sb(t_stack *stackB);
 void    ss(t_stack *stackA, t_stack *stackB);
 void    pa(t_stack *stackA, t_stack *stackB);
 void    pb(t_stack *stackB, t_stack *stackA);
+void	rotation(t_stack *stack);
+void	ra(t_stack *stackA);
+void	rb(t_stack *stackB);
+void	rr(t_stack *stackA, t_stack *stackB);
+void	reverse_rotation(t_stack *stack);
+void	rra(t_stack *stackA);
+void	rrb(t_stack *stackA);
+void	rrr(t_stack *stackA, t_stack *stackB);
 
 //FINAL FONCTION
 void	push_swap(int argc, char **argv);
