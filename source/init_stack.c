@@ -12,11 +12,19 @@ t_Bool is_empty(t_stack *stack)
     return (false);
 }
 
-ssize_t stack_length(t_stack *stack)
+size_t	stack_length(t_stack *stack)
 {
-    if (is_empty(stack))
-        return (0);
-    return (stack->length);
+	t_stackNode *node;
+	size_t		count;
+
+	count = 0;
+	node = stack->top;
+	while (node != NULL)
+	{
+		count++;
+		node = node->next;
+	}
+	return (count);
 }
 
 ssize_t stackNode_top(t_stack *stack)

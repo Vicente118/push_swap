@@ -21,12 +21,14 @@ void    swap(t_stack *stack)
 void    sa(t_stack *stackA)
 {
     swap(stackA);
+    put_index(stackA);
     write(1, "sa\n", 3);
 }
 
 void    sb(t_stack *stackB)
 {
     swap(stackB);
+    put_index(stackB);
     write(1, "sb\n", 3);
 }
 
@@ -34,5 +36,7 @@ void    ss(t_stack *stackA, t_stack *stackB)
 {
     sa(stackA);
     sb(stackB);
+    put_index(stackA);
+	put_index(stackB);
     write(1, "ss\n", 3);
 }

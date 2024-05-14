@@ -23,6 +23,10 @@ SRCS = 	source/push_swap.c\
 		source/push_movement.c\
 		source/rotation_movement.c\
 		source/reverse_rotation_movement.c\
+		source/algorithme.c\
+		source/algorithme_utils.c\
+		source/algorithme_utils2.c\
+		source/extremum_stack.c\
 		source/free_tab.c\
 		source/ft_big_atoi.c\
 		source/argv_to_array.c\

@@ -21,12 +21,14 @@ void	reverse_rotation(t_stack *stack)
 void	rra(t_stack *stackA)
 {
 	reverse_rotation(stackA);
+	put_index(stackA);
 	write(1, "rra\n", 4);
 }
 
 void	rrb(t_stack *stackB)
 {
 	reverse_rotation(stackB);
+	put_index(stackB);
 	write(1, "rrb\n", 4);
 }
 
@@ -34,5 +36,7 @@ void	rrr(t_stack *stackA, t_stack *stackB)
 {
 	reverse_rotation(stackA);
 	reverse_rotation(stackB);
+	put_index(stackA);
+	put_index(stackB);
 	write(1, "rrr\n", 4);
 }

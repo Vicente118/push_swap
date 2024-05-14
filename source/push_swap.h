@@ -18,6 +18,7 @@ typedef struct s_stackNode
 {
 	ssize_t				value;
 	ssize_t				index;
+	t_Bool				above_median;
 	struct s_stackNode	*back;
 	struct s_stackNode	*next;
 }	t_stackNode;
@@ -30,54 +31,66 @@ typedef struct s_stack
 }	t_stack;
 
 // INIT_STACK
-t_stack *init_stack(void);
-t_Bool	is_empty(t_stack *stack);
-ssize_t	stack_length(t_stack *stack);
-ssize_t	stackNode_top(t_stack *stack);
-ssize_t stackNode_bottom(t_stack *stack);
-t_stack *add_back_stack(t_stack *stack, ssize_t number);
-t_stack	*fill_stackA(int argc, char **argv);
+t_stack 	*init_stack(void);
+t_Bool		is_empty(t_stack *stack);
+size_t		stack_length(t_stack *stack);
+ssize_t		stackNode_top(t_stack *stack);
+ssize_t 	stackNode_bottom(t_stack *stack);
+t_stack 	*add_back_stack(t_stack *stack, ssize_t number);
+t_stack		*fill_stackA(int argc, char **argv);
 
 // PRINT STACK
-void	print_stack(t_stack *stack);
+void		print_stack(t_stack *stack);
 
 // ARGV ERROR
-void    print_error(void);
-t_Bool	check_doublon_error(ssize_t *tab);
-t_Bool  check_argv_error(char **array);
+void    	print_error(void);
+t_Bool		check_doublon_error(ssize_t *tab);
+t_Bool  	check_argv_error(char **array);
 
 // PARSER
-ssize_t length_array(char **array);
-int		len_simple_array(ssize_t *array);
-ssize_t	ft_big_atoi(char *str);
-char    *argv_to_array(int argc, char **argv);
-int     argv_count(int argc, char **argv);
-ssize_t	*parser_simple_argv(char **argv);
-ssize_t *parser_multiple_argv(int argc, char  **argv);
-ssize_t	*argv_array_numbers(int argc, char **argv);
+ssize_t 	length_array(char **array);
+int			len_simple_array(ssize_t *array);
+ssize_t		ft_big_atoi(char *str);
+char    	*argv_to_array(int argc, char **argv);
+int     	argv_count(int argc, char **argv);
+ssize_t		*parser_simple_argv(char **argv);
+ssize_t 	*parser_multiple_argv(int argc, char  **argv);
+ssize_t		*argv_array_numbers(int argc, char **argv);
 
 // FREE ARRAY
-void    free_tab(char **array);
-void    free_tab_error(char **array);
-void	free_stack(t_stackNode **lst);
+void    	free_tab(char **array);
+void    	free_tab_error(char **array);
+void		free_stack(t_stackNode **lst);
 
 // MOVEMENT
-void    swap(t_stack *stack);
-void    sa(t_stack *stackA);
-void    sb(t_stack *stackB);
-void    ss(t_stack *stackA, t_stack *stackB);
-void    pa(t_stack *stackA, t_stack *stackB);
-void    pb(t_stack *stackB, t_stack *stackA);
-void	rotation(t_stack *stack);
-void	ra(t_stack *stackA);
-void	rb(t_stack *stackB);
-void	rr(t_stack *stackA, t_stack *stackB);
-void	reverse_rotation(t_stack *stack);
-void	rra(t_stack *stackA);
-void	rrb(t_stack *stackA);
-void	rrr(t_stack *stackA, t_stack *stackB);
+void    	swap(t_stack *stack);
+void    	sa(t_stack *stackA);
+void    	sb(t_stack *stackB);
+void    	ss(t_stack *stackA, t_stack *stackB);
+void    	pa(t_stack *stackA, t_stack *stackB);
+void   		pb(t_stack *stackB, t_stack *stackA);
+void		rotation(t_stack *stack);
+void		ra(t_stack *stackA);
+void		rb(t_stack *stackB);
+void		rr(t_stack *stackA, t_stack *stackB);
+void		reverse_rotation(t_stack *stack);
+void		rra(t_stack *stackA);
+void		rrb(t_stack *stackA);
+void		rrr(t_stack *stackA, t_stack *stackB);
+
+//ALGO UTILS
+t_Bool		is_sort(t_stack *stack);
+float		mean_value(t_stack *stack);
+void		move_mean(t_stack *stackA, t_stack *stackB);
+t_stackNode	*minimum_stack(t_stack *stack);
+t_stackNode	*maximum_stack(t_stack *stack);
+void		put_index(t_stack *stack);
+void		put_median(t_stack *stack);
+void		sort_3_nodes(t_stack *stack);
+void		sort_2_nodesB(t_stack *stackA, t_stack *stackB);
+void		sort_5_nodes(t_stack *stackA, t_stack *stackB);
 
 //FINAL FONCTION
-void	push_swap(int argc, char **argv);
+void		push_swap(int argc, char **argv);
 
 #endif

@@ -12,7 +12,7 @@ void	print_stack(t_stack *stack)
 	}
 	while (temp != NULL)
 	{
-		ft_printf("[%d] ", temp->value);
+		printf("[%ld]  index : %ld  --- above mediane : %u\n", temp->value, temp->index, temp->above_median);
 		temp = temp->next;
 	}
 }

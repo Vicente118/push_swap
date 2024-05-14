@@ -10,6 +10,7 @@ t_stack *add_back_stack(t_stack *stack, ssize_t number)
     node->value = number;
     node->next = NULL;
     node->back = NULL;
+    node->above_median = 0;
     if (is_empty(stack))
     {
         stack = malloc(sizeof(t_stack));
