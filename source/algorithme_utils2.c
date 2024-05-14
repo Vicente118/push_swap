@@ -40,7 +40,6 @@ void	sort_5_nodes(t_stack *stackA, t_stack *stackB)
 	t_stackNode *minNode2;
 
 	minNode = minimum_stack(stackA);
-	printf("%ld\n\n", minNode->value);
 	if (minNode->above_median == true)
 		while (minNode->index != 1)
 			ra(stackA);
@@ -49,7 +48,6 @@ void	sort_5_nodes(t_stack *stackA, t_stack *stackB)
 			rra(stackA);
 	pb(stackA, stackB);
 	minNode2 = minimum_stack(stackA);
-	printf("%ld\n\n", minNode2->value);
 	if (minNode2->above_median == true)
 		while (minNode2->index != 1)
 			ra(stackA);
