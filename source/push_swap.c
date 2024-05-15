@@ -23,7 +23,7 @@ int main(int argc, char **argv)
 		rise_nodeBF(stackA, stackB);
 		pa(stackB, stackA);
 	}
-	while (is_sort(stackA) == false)g
+	while (is_sort(stackA) == false)
 		rra(stackA);
 	free_stack(&(stackA->top));
 	free(stackA);
