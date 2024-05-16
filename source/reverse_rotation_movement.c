@@ -1,15 +1,26 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   reverse_rotation_movement.c                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: vdarras <vdarras@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/05/16 16:04:30 by vdarras           #+#    #+#             */
+/*   Updated: 2024/05/16 16:13:32 by vdarras          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 void	reverse_rotation(t_stack *stack)
 {
-	t_stackNode *first;
-	t_stackNode	*second_to_last;
-	t_stackNode *last;
+	t_stack_node	*first;
+	t_stack_node	*second_to_last;
+	t_stack_node	*last;
 
 	first = stack->top;
 	last = stack->bottom;
 	second_to_last = last->back;
-
 	stack->bottom = second_to_last;
 	last->back = NULL;
 	last->next = stack->top;
@@ -18,29 +29,29 @@ void	reverse_rotation(t_stack *stack)
 	first->back = last;
 }
 
-void	rra(t_stack *stackA)
+void	rra(t_stack *stack_a)
 {
-	reverse_rotation(stackA);
-	put_index(stackA);
-	put_median(stackA);
+	reverse_rotation(stack_a);
+	put_index(stack_a);
+	put_median(stack_a);
 	write(1, "rra\n", 4);
 }
 
-void	rrb(t_stack *stackB)
+void	rrb(t_stack *stack_b)
 {
-	reverse_rotation(stackB);
-	put_index(stackB);
-	put_median(stackB);
+	reverse_rotation(stack_b);
+	put_index(stack_b);
+	put_median(stack_b);
 	write(1, "rrb\n", 4);
 }
 
-void	rrr(t_stack *stackA, t_stack *stackB)
+void	rrr(t_stack *stack_a, t_stack *stack_b)
 {
-	reverse_rotation(stackA);
-	reverse_rotation(stackB);
-	put_index(stackA);
-	put_index(stackB);
-	put_median(stackA);
-	put_median(stackB);
+	reverse_rotation(stack_a);
+	reverse_rotation(stack_b);
+	put_index(stack_a);
+	put_index(stack_b);
+	put_median(stack_a);
+	put_median(stack_b);
 	write(1, "rrr\n", 4);
 }

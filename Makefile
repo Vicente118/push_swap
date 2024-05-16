@@ -18,7 +18,7 @@ SRCS = 	source/push_swap.c\
 		source/linked_list_movement.c\
 		source/print_stack.c\
 		source/parsing.c\
-		source/fill_stackA.c\
+		source/fill_stack_a.c\
 		source/swap_movement.c\
 		source/push_movement.c\
 		source/rotation_movement.c\

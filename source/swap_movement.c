@@ -1,46 +1,71 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   swap_movement.c                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: vdarras <vdarras@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/05/16 16:04:35 by vdarras           #+#    #+#             */
+/*   Updated: 2024/05/16 18:47:40 by vdarras          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
-void    swap(t_stack *stack)
+void	swap(t_stack *stack)
 {
-    t_stackNode *firstNode;
-    t_stackNode *secondNode;
-    t_stackNode *thirdNode;
+	t_stack_node	*first_node;
+	t_stack_node	*second_node;
+	t_stack_node	*third_node;
 
-    firstNode = stack->top;
-    secondNode = firstNode->next;
-    thirdNode = secondNode->next;
-
-    stack->top = secondNode;
-    secondNode->back = NULL;
-    secondNode->next = firstNode;
-    firstNode->back = secondNode;
-
-    thirdNode->back = firstNode;
-    firstNode->next = thirdNode;
+	first_node = stack->top;
+	second_node = first_node->next;
+	third_node = second_node->next;
+	stack->top = second_node;
+	second_node->back = NULL;
+	second_node->next = first_node;
+	first_node->back = second_node;
+	third_node->back = first_node;
+	first_node->next = third_node;
 }
-void    sa(t_stack *stackA)
+void	swap2nodes(t_stack *stack)
 {
-    swap(stackA);
-    put_index(stackA);
-    put_median(stackA);
-    write(1, "sa\n", 3);
-}
+	t_stack_node	*first_node;
+	t_stack_node	*second_node;
 
-void    sb(t_stack *stackB)
-{
-    swap(stackB);
-    put_index(stackB);
-    put_median(stackB);
-    write(1, "sb\n", 3);
+	first_node = stack->top;
+	second_node = first_node->next;
+	stack->top = second_node;
+	second_node->back = NULL;
+	second_node->next = first_node;
+	first_node->back = second_node;
+	first_node->next = NULL;
+	stack->bottom = first_node;
 }
 
-void    ss(t_stack *stackA, t_stack *stackB)
+void	sa(t_stack *stack_a)
 {
-    sa(stackA);
-    sb(stackB);
-    put_index(stackA);
-	put_index(stackB);
-    put_median(stackA);
-    put_median(stackB);
-    write(1, "ss\n", 3);
+	swap(stack_a);
+	put_index(stack_a);
+	put_median(stack_a);
+	write(1, "sa\n", 3);
+}
+
+void	sb(t_stack *stack_b)
+{
+	swap(stack_b);
+	put_index(stack_b);
+	put_median(stack_b);
+	write(1, "sb\n", 3);
+}
+
+void	ss(t_stack *stack_a, t_stack *stack_b)
+{
+	sa(stack_a);
+	sb(stack_b);
+	put_index(stack_a);
+	put_index(stack_b);
+	put_median(stack_a);
+	put_median(stack_b);
+	write(1, "ss\n", 3);
 }

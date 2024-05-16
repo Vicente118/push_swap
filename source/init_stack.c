@@ -1,21 +1,33 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   init_stack.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: vdarras <vdarras@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/05/16 16:04:21 by vdarras           #+#    #+#             */
+/*   Updated: 2024/05/16 16:28:17 by vdarras          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
-t_stack *init_stack(void)
+t_stack	*init_stack(void)
 {
-    return (NULL);
+	return (NULL);
 }
 
-t_Bool is_empty(t_stack *stack)
+t_Bool	is_empty(t_stack *stack)
 {
-    if (!stack)
-        return (true);
-    return (false);
+	if (!stack)
+		return (true);
+	return (false);
 }
 
 size_t	stack_length(t_stack *stack)
 {
-	t_stackNode *node;
-	size_t		count;
+	t_stack_node	*node;
+	size_t			count;
 
 	count = 0;
 	node = stack->top;
@@ -25,18 +37,4 @@ size_t	stack_length(t_stack *stack)
 		node = node->next;
 	}
 	return (count);
-}
-
-ssize_t stackNode_top(t_stack *stack)
-{
-    if (is_empty(stack))
-        return (0);
-    return (stack->top->value);
-}
-
-ssize_t stackNode_bottom(t_stack *stack)
-{
-    if (is_empty(stack))
-        return (0);
-    return (stack->bottom->value);
 }

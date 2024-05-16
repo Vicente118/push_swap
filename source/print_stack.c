@@ -1,18 +1,30 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   print_stack.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: vdarras <vdarras@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/05/16 16:04:26 by vdarras           #+#    #+#             */
+/*   Updated: 2024/05/16 18:05:25 by vdarras          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 void	print_stack(t_stack *stack)
 {
-	t_stackNode *temp;
+	t_stack_node	*temp;
 
 	temp = stack->top;
-	if(is_empty(stack))
+	if (is_empty(stack))
 	{
 		ft_printf("Liste vide");
 		return ;
 	}
 	while (temp != NULL)
 	{
-		printf("[%ld]  index : %ld  --- above mediane : %u\n", temp->value, temp->index, temp->above_median);
+		printf("[%ld]\n", temp->value);
 		temp = temp->next;
 	}
 }

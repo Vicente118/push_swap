@@ -1,8 +1,20 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   algorithme_utils.c                                 :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: vdarras <vdarras@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/05/16 16:03:56 by vdarras           #+#    #+#             */
+/*   Updated: 2024/05/16 16:22:28 by vdarras          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 t_Bool	is_sort(t_stack *stack)
 {
-	t_stackNode *node;
+	t_stack_node	*node;
 
 	node = stack->top;
 	while (node->next != NULL)
@@ -13,11 +25,12 @@ t_Bool	is_sort(t_stack *stack)
 	}
 	return (true);
 }
+
 float	mean_value(t_stack *stack)
 {
-	t_stackNode	*node;
-	float	mean;
-	float	count;
+	t_stack_node	*node;
+	float			mean;
+	float			count;
 
 	node = stack->top;
 	mean = 0;
@@ -32,23 +45,24 @@ float	mean_value(t_stack *stack)
 	return (mean);
 }
 
-void	move_mean(t_stack *stackA, t_stack *stackB)
+void	move_mean(t_stack *stack_a, t_stack *stack_b)
 {
 	float	mean;
 
-	while (stack_length(stackA) != 5)
+	while (stack_length(stack_a) != 5)
 	{
-		mean = mean_value(stackA);
-		if ((float) (stackA->top->value) <= mean)
-			pb(stackA, stackB);
+		mean = mean_value(stack_a);
+		if ((float)(stack_a->top->value) <= mean)
+			pb(stack_a, stack_b);
 		else
-			ra(stackA);
+			ra(stack_a);
 	}
 }
+
 void	put_index(t_stack *stack)
 {
-	ssize_t		index;
-	t_stackNode *node;
+	ssize_t			index;
+	t_stack_node	*node;
 
 	index = 1;
 	node = stack->top;
@@ -62,8 +76,8 @@ void	put_index(t_stack *stack)
 
 void	put_median(t_stack *stack)
 {
-	t_stackNode	*node;
-	ssize_t		length;
+	t_stack_node	*node;
+	ssize_t			length;
 
 	length = stack_length(stack);
 	node = stack->top;
