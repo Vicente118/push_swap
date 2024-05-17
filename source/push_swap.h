@@ -6,7 +6,7 @@
 /*   By: vdarras <vdarras@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/17 22:52:33 by vdarras           #+#    #+#             */
-/*   Updated: 2024/05/17 22:56:53 by vdarras          ###   ########.fr       */
+/*   Updated: 2024/05/17 23:11:03 by vdarras          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ size_t					stack_length(t_stack *stack);
 ssize_t					stack_node_top(t_stack *stack);
 ssize_t					stackNode_bottom(t_stack *stack);
 t_stack					*add_back_stack(t_stack *stack, ssize_t number);
-//t_stack					*fill_stack_a(int argc, char **argv);
+t_stack					*fill_stack_a(int argc, char **argv);
 
 // PRINT STACK
 void					print_stack(t_stack *stack);
@@ -68,8 +68,8 @@ ssize_t					ft_big_atoi(char *str);
 char					*argv_to_array(int argc, char **argv);
 int						argv_count(int argc, char **argv);
 ssize_t					*parser_simple_argv(char **argv);
-//ssize_t					*parser_multiple_argv(int argc, char **argv);
-//ssize_t					*argv_array_numbers(int argc, char **argv);
+ssize_t					*parser_multiple_argv(int argc, char **argv);
+ssize_t					*argv_array_numbers(int argc, char **argv);
 
 // FREE ARRAY
 void					free_tab(char **array);
