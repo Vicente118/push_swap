@@ -18,6 +18,12 @@ void	sort_2_nodes_b(t_stack *stack_a, t_stack *stack_b)
 	pa(stack_b, stack_a);
 }
 
+void	ra_sa(t_stack *stackA)
+{
+	ra(stackA);
+	sa(stackA);
+}
+
 void	sort_3_nodes(t_stack *stack)
 {
 	t_stack_node	*node1;
@@ -29,10 +35,7 @@ void	sort_3_nodes(t_stack *stack)
 	node3 = node2->next;
 	if (node1->value > node2->value && node2->value > node3->value
 		&& node1->value > node3->value)
-	{
-		ra(stack);
-		sa(stack);
-	}
+		ra_sa(stack);
 	else if (node1->value < node2->value && node2->value > node3->value
 		&& node1->value < node3->value)
 	{
@@ -66,6 +69,7 @@ void	sort_4_nodes(t_stack *stack_a, t_stack *stack_b)
 		sort_3_nodes(stack_a);
 	pa(stack_b, stack_a);
 }
+
 void	sort_5_nodes(t_stack *stack_a, t_stack *stack_b)
 {
 	t_stack_node	*min_node;

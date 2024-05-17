@@ -58,6 +58,18 @@ void	assign_cost(t_stack *stack_a, t_stack *stack_b)
 	}
 }
 
+void	rotate_to_rise(t_stack *stack, t_stack_node *node, int index)
+{
+	while (node->index != index)
+		node = node->back;
+	if (node->above_median == true)
+		while (node->index != 1)
+			rb(stack);
+	else
+		while (node->index != 1)
+			rrb(stack);
+}
+
 void	rise_node_b(t_stack *stack_b)
 {
 	t_stack_node	*node;
@@ -78,14 +90,7 @@ void	rise_node_b(t_stack *stack_b)
 			break ;
 		node = node->next;
 	}
-	while (node->index != index)
-		node = node->back;
-	if (node->above_median == true)
-		while (node->index != 1)
-			rb(stack_b);
-	else
-		while (node->index != 1)
-			rrb(stack_b);
+	rotate_to_rise(stack_b, node, index);
 }
 
 void	rise_min_node(t_stack *stack_a, t_stack *stack_b)

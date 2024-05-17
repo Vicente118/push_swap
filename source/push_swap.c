@@ -12,6 +12,13 @@
 
 #include "push_swap.h"
 
+t_Bool	invalid_argv2(char **argv)
+{
+	if (!argv[1][0] || argv[1][0] == ' ')
+		return (false);
+	return (true);
+}
+
 void	push_swap(t_stack *stack_a, t_stack *stack_b)
 {
 	put_index(stack_a);
@@ -28,26 +35,22 @@ void	push_swap(t_stack *stack_a, t_stack *stack_b)
 	}
 	while (is_sort(stack_a) == false)
 		rra(stack_a);
-	free(stack_a);
-	free(stack_b);
 }
 
-int main(int argc, char **argv)
+int	main(int argc, char **argv)
 {
 	t_stack	*stack_a;
 	t_stack	*stack_b;
 
+	if (argc == 2 && invalid_argv2(argv) == false)
+		return (0);
 	stack_a = fill_stack_a(argc, argv);
 	stack_b = malloc(sizeof(t_stack));
 	stack_b->top = NULL;
 	stack_b->bottom = NULL;
 	if (stack_length(stack_a) == 2)
-	{
-		if(is_sort(stack_a))
-			return (0);
-		else
+		if (!is_sort(stack_a))
 			swap2nodes(stack_a);
-	}
 	if (stack_length(stack_a) == 3)
 		sort_3_nodes(stack_a);
 	if (stack_length(stack_a) == 4)
@@ -58,5 +61,7 @@ int main(int argc, char **argv)
 	}
 	if (stack_length(stack_a) >= 5)
 		push_swap(stack_a, stack_b);
+	free_stack(&(stack_a->top), stack_a);
+	free(stack_b);
 	return (0);
 }

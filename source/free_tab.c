@@ -39,7 +39,7 @@ void	free_tab(char **array)
 	free(array);
 }
 
-void	free_stack(t_stack_node **lst)
+void	free_stack(t_stack_node **lst, t_stack *stack_a)
 {
 	t_stack_node	*tmp;
 
@@ -52,4 +52,5 @@ void	free_stack(t_stack_node **lst)
 		free(*lst);
 		*lst = tmp;
 	}
+	free(stack_a);
 }

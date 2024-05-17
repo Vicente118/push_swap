@@ -28,6 +28,7 @@ void	swap(t_stack *stack)
 	third_node->back = first_node;
 	first_node->next = third_node;
 }
+
 void	swap2nodes(t_stack *stack)
 {
 	t_stack_node	*first_node;
@@ -41,6 +42,7 @@ void	swap2nodes(t_stack *stack)
 	first_node->back = second_node;
 	first_node->next = NULL;
 	stack->bottom = first_node;
+	write(1, "sa\n", 3);
 }
 
 void	sa(t_stack *stack_a)

@@ -62,7 +62,7 @@ ssize_t					*argv_array_numbers(int argc, char **argv);
 // FREE ARRAY
 void					free_tab(char **array);
 void					free_tab_error(char **array);
-void					free_stack(t_stack_node **lst);
+void					free_stack(t_stack_node **lst, t_stack *stack_a);
 
 // MOVEMENT
 void					swap(t_stack *stack);
@@ -80,6 +80,7 @@ void					reverse_rotation(t_stack *stack);
 void					rra(t_stack *stack_a);
 void					rrb(t_stack *stack_a);
 void					rrr(t_stack *stack_a, t_stack *stack_b);
+void					ra_sa(t_stack *stack);
 
 // ALGO UTILS
 t_Bool					is_sort(t_stack *stack);
@@ -98,6 +99,8 @@ void					assign_cost(t_stack *stack_a, t_stack *stack_b);
 void					rise_node_b(t_stack *stack_b);
 void					rise_node_bis(t_stack *stack_b);
 void					rise_min_node(t_stack *stack_a, t_stack *stack_b);
+int						find_best_cost(t_stack *stack_b, ssize_t *min);
+void					rotate_to_rise(t_stack *stack, t_stack_node *node, int index);
 
 // FINAL FONCTION
 void					push_swap(t_stack *stack_a, t_stack *stack_b);

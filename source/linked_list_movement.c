@@ -12,6 +12,20 @@
 
 #include "push_swap.h"
 
+t_stack	*initialize_stack(t_stack *stack, t_stack_node *node)
+{
+	stack = malloc(sizeof(t_stack));
+	if (!stack)
+	{
+		free(node);
+		print_error();
+	}
+	stack->length = 0;
+	stack->top = node;
+	stack->bottom = node;
+	return (stack);
+}
+
 t_stack	*add_back_stack(t_stack *stack, ssize_t number)
 {
 	t_stack_node	*node;
@@ -24,17 +38,7 @@ t_stack	*add_back_stack(t_stack *stack, ssize_t number)
 	node->back = NULL;
 	node->above_median = 0;
 	if (is_empty(stack))
-	{
-		stack = malloc(sizeof(t_stack));
-		if (!stack)
-		{
-			free(node);
-			print_error();
-		}
-		stack->length = 0;
-		stack->top = node;
-		stack->bottom = node;
-	}
+		stack = initialize_stack(stack, node);
 	else
 	{
 		stack->bottom->next = node;
