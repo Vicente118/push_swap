@@ -6,11 +6,11 @@
 /*   By: vdarras <vdarras@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/16 16:04:35 by vdarras           #+#    #+#             */
-/*   Updated: 2024/05/20 19:07:42 by vdarras          ###   ########.fr       */
+/*   Updated: 2024/05/20 19:18:31 by vdarras          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "checker.h"
 
 void	swap(t_stack *stack)
 {
@@ -18,6 +18,8 @@ void	swap(t_stack *stack)
 	t_stack_node	*second_node;
 	t_stack_node	*third_node;
 
+	if (stack_length(stack) < 2)
+		print_error();
 	first_node = stack->top;
 	second_node = first_node->next;
 	third_node = second_node->next;
@@ -33,7 +35,7 @@ void	swap2nodes(t_stack *stack)
 {
 	t_stack_node	*first_node;
 	t_stack_node	*second_node;
-
+	
 	first_node = stack->top;
 	second_node = first_node->next;
 	stack->top = second_node;
@@ -42,7 +44,6 @@ void	swap2nodes(t_stack *stack)
 	first_node->back = second_node;
 	first_node->next = NULL;
 	stack->bottom = first_node;
-	write(1, "sa\n", 3);
 }
 
 void	sa(t_stack *stack_a)
@@ -50,7 +51,6 @@ void	sa(t_stack *stack_a)
 	swap(stack_a);
 	put_index(stack_a);
 	put_median(stack_a);
-	write(1, "sa\n", 3);
 }
 
 void	sb(t_stack *stack_b)
@@ -58,7 +58,6 @@ void	sb(t_stack *stack_b)
 	swap(stack_b);
 	put_index(stack_b);
 	put_median(stack_b);
-	write(1, "sb\n", 3);
 }
 
 void	ss(t_stack *stack_a, t_stack *stack_b)
@@ -69,5 +68,4 @@ void	ss(t_stack *stack_a, t_stack *stack_b)
 	put_index(stack_b);
 	put_median(stack_a);
 	put_median(stack_b);
-	write(1, "ss\n", 3);
 }

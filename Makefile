@@ -11,11 +11,9 @@ BONUS = checker
 
 LIBFT = libft/libft.a
 
-PRINTF = printf/libftprintf.a
-
 CC = cc 
 
-CFLAGS = -Werror -Wall -Wextra -fsanitize=address -g
+CFLAGS = -Werror -Wall -Wextra
 
 RM = rm -rf
 
@@ -41,25 +39,29 @@ SRCS = 	source/push_swap.c\
 OBJS	=	$(SRCS:.c=.o)
 
 SRCS_BONUS = src_bonus/checker.c\
-			 get_next_line/get_next_line.c\
-			 get_next_line/get_next_line_utils.c\
-# 			src_bonus/ope1_bonus.c\
-# 			src_bonus/ope2_bonus.c\
-# 			src_bonus/ope3_bonus.c\
-# 			src_bonus/ope4_bonus.c\
-# 			src_bonus/utils_bonus.c\
+			 src_bonus/get_next_line.c\
+			 src_bonus/get_next_line_utils.c\
+			 source/linked_list_movement.c\
+			 source/print_stack.c\
+			 source/parsing.c\
+			 source/fill_stack_a.c\
+			 src_bonus/input_error.c\
+			 src_bonus/swap_movement.c\
+		  	 src_bonus/push_movement.c\
+		 	 src_bonus/rotation_movement.c\
+			 src_bonus/reverse_rotation_movement.c\
+			 src_bonus/init_stack.c\
+			 source/algorithme2.c\
+			 source/algorithme1.c\
+			 source/algorithme_utils.c\
+			 source/extremum_stack.c\
+			 source/free_tab.c\
+			 source/ft_big_atoi.c\
+			 source/argv_to_array.c\
+			 source/error_message.c\
+		
 
 OBJS2	=	$(SRCS_BONUS:.c=.o)
-
-TOTAL_FILES 	:= $(words $(SRCS))
-
-CURRENT_FILE 	:= 0
-
-define progress_bar_push_swap
-    @$(eval CURRENT_FILE=$(shell echo $$(($(CURRENT_FILE) + 1))))
-    @printf "\r$(GREEN)Compiling Push Swap... [%-$(TOTAL_FILES)s] %d/%d $(NC)" $$(for i in $$(seq 1 $(CURRENT_FILE)); do printf "#"; done) $(CURRENT_FILE) $(TOTAL_FILES)
-	@if [ $(CURRENT_FILE) -eq $(TOTAL_FILES) ]; then echo ""; fi
-endef
 
 all : $(NAME)
 
@@ -67,7 +69,6 @@ bonus : $(BONUS)
 
 $(NAME) : $(OBJS)
 	@make bonus -C libft
-	@make -C printf
 	@printf "                                               \r"
 	@echo "                       								 "        			
 	@echo "██████╗ ██╗   ██╗███████╗██╗  ██╗        ███████╗██╗    ██╗ █████╗ ██████╗ "
@@ -77,11 +78,10 @@ $(NAME) : $(OBJS)
 	@echo "██║     ╚██████╔╝███████║██║  ██║███████╗███████║╚███╔███╔╝██║  ██║██║     "
 	@echo "╚═╝      ╚═════╝ ╚══════╝╚═╝  ╚═╝╚══════╝╚══════╝ ╚══╝╚══╝ ╚═╝  ╚═╝╚═╝     "
 	@echo "                       								 "        			
-	@$(CC) $(OBJS) $(CFLAGS) -o $(NAME) $(LIBFT) $(PRINTF)
+	@$(CC) $(CFLAGS) $(OBJS) $(LIBFT) $(PRINTF) -o $(NAME)
 
 $(BONUS) : $(OBJS) $(OBJS2) 
 	@make bonus -C libft
-	@make -C printf
 	@printf "                                               \r"
 	@echo "                       								 "        			
 	@echo " ██████╗██╗  ██╗███████╗ ██████╗██╗  ██╗███████╗██████╗ "
@@ -91,20 +91,16 @@ $(BONUS) : $(OBJS) $(OBJS2)
 	@echo "╚██████╗██║  ██║███████╗╚██████╗██║  ██╗███████╗██║  ██║"
 	@echo " ╚═════╝╚═╝  ╚═╝╚══════╝ ╚═════╝╚═╝  ╚═╝╚══════╝╚═╝  ╚═╝"
 	@echo "                       								 "
-	@$(CC) $(OBJS2) $(CFLAGS) -o $(NAME_BONUS) $(LIBFT) $(PRINTF)
+	@$(CC) $(CFLAGS) $(OBJS2) $(LIBFT) $(PRINTF) -o $(BONUS)
 
 %.o : %.c	
-	@$(CC) -o $@ -c $< $(CFLAGS)
+	@$(CC) $(CFLAGS) -o $@ -c $< 
 
 fclean : clean
-	@$(RM) $(NAME)
-	@make fclean -C printf
 	@make fclean -C libft
 	@rm -rf push_swap checker
 
 clean :
-	@$(RM) $(NAME)
-	@make clean -C printf
 	@make clean -C libft
 	@rm -rf source/*.o src_bonus/*.o
 

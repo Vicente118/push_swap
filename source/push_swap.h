@@ -6,19 +6,22 @@
 /*   By: vdarras <vdarras@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/17 22:52:33 by vdarras           #+#    #+#             */
-/*   Updated: 2024/05/18 15:30:30 by vdarras          ###   ########.fr       */
+/*   Updated: 2024/05/20 17:35:00 by vdarras          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 1
+# endif
 # include "../libft/libft.h"
-# include "../printf/ft_printf.h"
 # include <limits.h>
 # include <stdio.h>
 # include <stdlib.h>
-# include <sys/types.h>
+# include <fcntl.h>
+# include <string.h>
 
 typedef enum s_Bool
 {
