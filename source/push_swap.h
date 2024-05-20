@@ -6,7 +6,7 @@
 /*   By: vdarras <vdarras@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/17 22:52:33 by vdarras           #+#    #+#             */
-/*   Updated: 2024/05/17 23:11:03 by vdarras          ###   ########.fr       */
+/*   Updated: 2024/05/18 15:30:30 by vdarras          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,6 +70,7 @@ int						argv_count(int argc, char **argv);
 ssize_t					*parser_simple_argv(char **argv);
 ssize_t					*parser_multiple_argv(int argc, char **argv);
 ssize_t					*argv_array_numbers(int argc, char **argv);
+t_Bool					invalid_argv2(char **argv);
 
 // FREE ARRAY
 void					free_tab(char **array);
