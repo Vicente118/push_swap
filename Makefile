@@ -45,7 +45,6 @@ SRCS_BONUS = src_bonus/checker.c\
 			 source/print_stack.c\
 			 source/parsing.c\
 			 source/fill_stack_a.c\
-			 src_bonus/input_error.c\
 			 src_bonus/swap_movement.c\
 		  	 src_bonus/push_movement.c\
 		 	 src_bonus/rotation_movement.c\

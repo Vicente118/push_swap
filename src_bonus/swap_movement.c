@@ -6,7 +6,7 @@
 /*   By: vdarras <vdarras@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/16 16:04:35 by vdarras           #+#    #+#             */
-/*   Updated: 2024/05/20 19:18:31 by vdarras          ###   ########.fr       */
+/*   Updated: 2024/05/21 11:12:28 by vdarras          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ void	swap2nodes(t_stack *stack)
 {
 	t_stack_node	*first_node;
 	t_stack_node	*second_node;
-	
+
 	first_node = stack->top;
 	second_node = first_node->next;
 	stack->top = second_node;
