@@ -6,7 +6,7 @@
 /*   By: vdarras <vdarras@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/16 16:04:21 by vdarras           #+#    #+#             */
-/*   Updated: 2024/05/20 19:09:10 by vdarras          ###   ########.fr       */
+/*   Updated: 2024/05/23 12:16:27 by vdarras          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,3 +38,19 @@ size_t	stack_length(t_stack *stack)
 	}
 	return (count);
 }
+
+// void	free_stack(t_stack_node **lst, t_stack *stack_a)
+// {
+// 	t_stack_node	*tmp;
+
+// 	if (!lst)
+// 		return ;
+// 	while (*lst)
+// 	{
+// 		tmp = (*lst)->next;
+// 		(*lst)->value = 0;
+// 		free(*lst);
+// 		*lst = tmp;
+// 	}
+// 	free(stack_a);
+// }

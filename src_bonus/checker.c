@@ -6,7 +6,7 @@
 /*   By: vdarras <vdarras@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/21 11:13:11 by vdarras           #+#    #+#             */
-/*   Updated: 2024/05/21 11:49:14 by vdarras          ###   ########.fr       */
+/*   Updated: 2024/05/23 12:22:22 by vdarras          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,11 @@ void	condition2(t_stack *stack_a, t_stack *stack_b, char *line)
 	else if (strcmp(line, "pb\n") == 0)
 		pb(stack_a, stack_b);
 	else if (strcmp(line, "\n") != 0)
+	{
+		free_stack(&(stack_a->top), stack_a);
+		free_stack(&(stack_b->top), stack_b);
 		print_error();
+	}
 }
 
 void	get_command(t_stack *stack_a, t_stack *stack_b)
@@ -71,7 +75,11 @@ void	get_command(t_stack *stack_a, t_stack *stack_b)
 		line = get_next_line(1);
 		condition2(stack_a, stack_b, line);
 		if (strcmp(line, "\n") == 0)
+		{
+			free(line);
 			break ;
+		}
+		free(line);
 	}
 }
 
@@ -91,5 +99,7 @@ int	main(int argc, char **argv)
 		printf("OK\n");
 	else
 		printf("KO\n");
+	free_stack(&(stack_a->top), stack_a);
+	free_stack(&(stack_b->top), stack_b);
 	return (0);
 }
