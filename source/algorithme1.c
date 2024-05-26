@@ -6,7 +6,7 @@
 /*   By: vdarras <vdarras@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/16 16:04:09 by vdarras           #+#    #+#             */
-/*   Updated: 2024/05/16 19:05:10 by vdarras          ###   ########.fr       */
+/*   Updated: 2024/05/26 14:57:37 by vdarras          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,8 @@ void	sort_4_nodes(t_stack *stack_a, t_stack *stack_b)
 	t_stack_node	*min_node;
 
 	min_node = minimum_stack(stack_a);
+	stack_b->top = NULL;
+	stack_b->bottom = NULL;
 	if (min_node->above_median == true)
 		while (min_node->index != 1)
 			ra(stack_a);

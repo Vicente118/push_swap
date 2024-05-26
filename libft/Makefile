@@ -32,19 +32,9 @@ RANLIB = ranlib
 
 RM = rm -f
 
-TOTAL_FILES 	:= $(words $(SRCS))
-
-CURRENT_FILE 	:= 0
-
-define progress_bar_push_swap
-    @$(eval CURRENT_FILE=$(shell echo $$(($(CURRENT_FILE) + 1))))
-    @printf "\r$(GREEN)Compiling libft... [%-$(TOTAL_FILES)s] %d/%d $(NC)" $$(for i in $$(seq 1 $(CURRENT_FILE)); do printf "#"; done) $(CURRENT_FILE) $(TOTAL_FILES)
-	@if [ $(CURRENT_FILE) -eq $(TOTAL_FILES) ]; then echo ""; fi
-endef
 
 .c.o : $(SRCS) $(BONUS_SRCS)
 	@${CC} ${CFLAGS} -c -o $@ $^
-	$(call progress_bar_push_swap)
 
 $(NAME) : $(OBJS)
 	@$(ARRC) $(NAME) $(OBJS)

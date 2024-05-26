@@ -6,7 +6,7 @@
 /*   By: vdarras <vdarras@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/16 16:04:24 by vdarras           #+#    #+#             */
-/*   Updated: 2024/05/20 17:38:50 by vdarras          ###   ########.fr       */
+/*   Updated: 2024/05/24 17:04:01 by vdarras          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -113,6 +113,8 @@ ssize_t	*parser_multiple_argv(int argc, char **argv)
 
 	i = -1;
 	temp = argv_to_array(argc, argv);
+	if (!temp)
+		print_error();
 	array = ft_split(temp, ' ');
 	if (!array)
 		print_error();

@@ -6,7 +6,7 @@
 /*   By: vdarras <vdarras@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/16 16:04:29 by vdarras           #+#    #+#             */
-/*   Updated: 2024/05/20 14:14:24 by vdarras          ###   ########.fr       */
+/*   Updated: 2024/05/26 14:59:15 by vdarras          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,12 +42,12 @@ int	main(int argc, char **argv)
 	t_stack	*stack_a;
 	t_stack	*stack_b;
 
-	if (argc == 2 && invalid_argv2(argv) == false)
-		return (0);
 	stack_a = fill_stack_a(argc, argv);
 	stack_b = malloc(sizeof(t_stack));
-	stack_b->top = NULL;
-	stack_b->bottom = NULL;
+	if (!stack_b)
+		print_error();
+	if ((argc == 2 && invalid_argv2(argv) == false) || is_sort(stack_a))
+		return (free_stack(&(stack_a->top), stack_a), free(stack_b), 0);
 	if (stack_length(stack_a) == 2)
 		if (!is_sort(stack_a))
 			swap2nodes(stack_a);

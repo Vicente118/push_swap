@@ -6,7 +6,7 @@
 /*   By: vdarras <vdarras@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/16 16:04:26 by vdarras           #+#    #+#             */
-/*   Updated: 2024/05/20 17:27:18 by vdarras          ###   ########.fr       */
+/*   Updated: 2024/05/24 13:34:48 by vdarras          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,11 @@ void	print_stack(t_stack *stack)
 	temp = stack->top;
 	if (is_empty(stack))
 	{
-		printf("Liste vide");
+		write(1, "Liste vide", 10);
 		return ;
 	}
 	while (temp != NULL)
 	{
-		printf("[%ld]\n", temp->value);
 		temp = temp->next;
 	}
 }
