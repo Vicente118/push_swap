@@ -6,7 +6,7 @@
 /*   By: vdarras <vdarras@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/16 16:04:24 by vdarras           #+#    #+#             */
-/*   Updated: 2024/05/24 17:04:01 by vdarras          ###   ########.fr       */
+/*   Updated: 2024/05/27 15:40:03 by vdarras          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,10 @@ t_Bool	check_doublon_error(ssize_t *tab)
 		while (j < len_temp)
 		{
 			if (tab[i] == temp[j] && i != j)
+			{
+				free(tab);
 				return (false);
+			}
 			j++;
 		}
 		i++;
@@ -128,9 +131,6 @@ ssize_t	*parser_multiple_argv(int argc, char **argv)
 		int_tab[i] = ft_big_atoi(array[i]);
 	int_tab[i] = 2147483648;
 	if (!check_doublon_error(int_tab))
-	{
-		free(int_tab);
 		free_tab_error(array);
-	}
 	return (free_tab(array), int_tab);
 }

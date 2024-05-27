@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.c                                    :+:      :+:    :+:   */
+/*   get_next_line_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vdarras <vdarras@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/23 12:15:47 by vdarras           #+#    #+#             */
-/*   Updated: 2024/05/21 11:21:48 by vdarras          ###   ########.fr       */
+/*   Updated: 2024/05/27 13:20:26 by vdarras          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "checker.h"
+#include "checker_bonus.h"
 
 static char	*fill_stash(int fd, char *buffer, char *stash)
 {
@@ -108,7 +108,7 @@ char	*get_next_line(int fd)
 	stash = get_new_stash(stash, line);
 	if (!stash)
 		return (NULL);
-	if (*line == '\0')
+	if (*line == '\n')
 	{
 		return (free(line), free(stash), stash = NULL);
 	}

@@ -6,7 +6,7 @@
 /*   By: vdarras <vdarras@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/16 16:04:29 by vdarras           #+#    #+#             */
-/*   Updated: 2024/05/26 14:59:15 by vdarras          ###   ########.fr       */
+/*   Updated: 2024/05/27 11:39:16 by vdarras          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,8 @@ int	main(int argc, char **argv)
 	stack_b = malloc(sizeof(t_stack));
 	if (!stack_b)
 		print_error();
+	stack_b->top = NULL;
+	stack_b->bottom = NULL;
 	if ((argc == 2 && invalid_argv2(argv) == false) || is_sort(stack_a))
 		return (free_stack(&(stack_a->top), stack_a), free(stack_b), 0);
 	if (stack_length(stack_a) == 2)
@@ -54,11 +56,7 @@ int	main(int argc, char **argv)
 	if (stack_length(stack_a) == 3)
 		sort_3_nodes(stack_a);
 	if (stack_length(stack_a) == 4)
-	{
-		put_index(stack_a);
-		put_median(stack_a);
 		sort_4_nodes(stack_a, stack_b);
-	}
 	if (stack_length(stack_a) >= 5)
 		push_swap(stack_a, stack_b);
 	free_stack(&(stack_a->top), stack_a);

@@ -38,18 +38,18 @@ SRCS = 	source/push_swap.c\
 
 OBJS	=	$(SRCS:.c=.o)
 
-SRCS_BONUS = src_bonus/checker.c\
-			 src_bonus/get_next_line.c\
-			 src_bonus/get_next_line_utils.c\
+SRCS_BONUS = src_bonus/checker_bonus.c\
+			 src_bonus/get_next_line_bonus.c\
+			 src_bonus/get_next_line_utils_bonus.c\
 			 source/linked_list_movement.c\
 			 source/print_stack.c\
 			 source/parsing.c\
 			 source/fill_stack_a.c\
-			 src_bonus/swap_movement.c\
-		  	 src_bonus/push_movement.c\
-		 	 src_bonus/rotation_movement.c\
-			 src_bonus/reverse_rotation_movement.c\
-			 src_bonus/init_stack.c\
+			 src_bonus/swap_movement_bonus.c\
+		  	 src_bonus/push_movement_bonus.c\
+		 	 src_bonus/rotation_movement_bonus.c\
+			 src_bonus/reverse_rotation_movement_bonus.c\
+			 src_bonus/init_stack_bonus.c\
 			 source/algorithme2.c\
 			 source/algorithme1.c\
 			 source/algorithme_utils.c\

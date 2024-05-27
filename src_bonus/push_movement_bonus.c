@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_movement.c                                    :+:      :+:    :+:   */
+/*   push_movement_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vdarras <vdarras@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/16 16:04:27 by vdarras           #+#    #+#             */
-/*   Updated: 2024/05/20 19:23:10 by vdarras          ###   ########.fr       */
+/*   Updated: 2024/05/27 11:55:12 by vdarras          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "checker.h"
+#include "checker_bonus.h"
 
 void	pa(t_stack *stack_b, t_stack *stack_a)
 {
