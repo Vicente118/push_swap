@@ -6,7 +6,7 @@
 /*   By: vdarras <vdarras@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/16 16:04:32 by vdarras           #+#    #+#             */
-/*   Updated: 2024/05/27 11:55:20 by vdarras          ###   ########.fr       */
+/*   Updated: 2024/05/27 17:55:43 by vdarras          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	rotation(t_stack *stack)
 	t_stack_node	*last;
 
 	if (stack_length(stack) < 2)
-		print_error();
+		return ;
 	first = stack->top;
 	second = first->next;
 	last = stack->bottom;

@@ -6,7 +6,7 @@
 /*   By: vdarras <vdarras@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/21 11:13:11 by vdarras           #+#    #+#             */
-/*   Updated: 2024/05/27 15:09:54 by vdarras          ###   ########.fr       */
+/*   Updated: 2024/05/27 17:52:19 by vdarras          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,7 @@ void	get_command(t_stack *stack_a, t_stack *stack_b)
 	while (1)
 	{
 		line = get_next_line(1);
-		if (!line)
+		if (line == NULL)
 			break ;
 		condition2(stack_a, stack_b, line);
 		if (ft_strncmp(line, "\n", 5) == 0)

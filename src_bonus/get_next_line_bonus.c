@@ -6,7 +6,7 @@
 /*   By: vdarras <vdarras@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/23 12:15:47 by vdarras           #+#    #+#             */
-/*   Updated: 2024/05/27 13:20:26 by vdarras          ###   ########.fr       */
+/*   Updated: 2024/05/27 17:59:54 by vdarras          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,7 +108,7 @@ char	*get_next_line(int fd)
 	stash = get_new_stash(stash, line);
 	if (!stash)
 		return (NULL);
-	if (*line == '\n')
+	if (*line == '\n' || *line == '\0')
 	{
 		return (free(line), free(stash), stash = NULL);
 	}

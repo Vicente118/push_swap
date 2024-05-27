@@ -6,7 +6,7 @@
 /*   By: vdarras <vdarras@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/16 16:04:27 by vdarras           #+#    #+#             */
-/*   Updated: 2024/05/27 11:55:12 by vdarras          ###   ########.fr       */
+/*   Updated: 2024/05/27 17:56:27 by vdarras          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	pa(t_stack *stack_b, t_stack *stack_a)
 	t_stack_node	*node_to_push;
 
 	if (stack_length(stack_b) == 0)
-		print_error();
+		return ;
 	node_to_push = stack_b->top;
 	stack_b->top = stack_b->top->next;
 	if (stack_b->top)
